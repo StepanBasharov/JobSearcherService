@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    entrypoint: >
+      bash -c 'chmod +x ./entry.sh && ./wait-for-it/wait-for-it.sh db:5432 -- ./entry.sh'
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis

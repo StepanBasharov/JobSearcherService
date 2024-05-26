@@ -1,0 +1,13 @@
+server:
+  host: "0.0.0.0"
+  port: 8080
+  debug: true
+  version: "0.0.1"
+  title: "Job Search Service"
+
+database:
+  host: "db"
+  port: 5432
+  db: postgres
+  user: postgres
+  password: postgres
