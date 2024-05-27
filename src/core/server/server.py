@@ -6,21 +6,23 @@ from fastapi import (
 )
 from fastapi.responses import JSONResponse
 
-from app.core.base_error import BaseError
-from app.core.server.base_response import ErrorResponse
+from src.core.base_error import BaseError
+from src.core.server.base_response import ErrorResponse
 
 
+# TODO: дописать middleware для опредения времени выполения запроса
+# TODO: разграничить ответ use_case и BaseResponse
 class Server:
     """Класс отвечающий за работу сервера"""
 
     def __init__(
-        self,
-        host: str = "0.0.0.0",
-        port: int = 8080,
-        debug: bool = True,
-        version: str = "0.0.1",
-        title: str = "App",
-        routers: APIRouter = None,
+            self,
+            host: str = "0.0.0.0",
+            port: int = 8080,
+            debug: bool = True,
+            version: str = "0.0.1",
+            title: str = "App",
+            routers: APIRouter = None,
     ):
         self._host = host
         self._port = port

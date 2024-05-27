@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.domain.user.api.v1 import user_api_v1
+from src.domain.user.api.v1 import user_api_v1
 
 
 api = APIRouter(prefix="/api")

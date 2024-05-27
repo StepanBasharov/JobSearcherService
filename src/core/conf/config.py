@@ -2,7 +2,7 @@ import yaml
 
 from pydantic import BaseModel
 
-from app.core.constants import CONFIG_PATH
+from src.core.constants import CONFIG_PATH
 
 
 class ServerConfig(BaseModel):

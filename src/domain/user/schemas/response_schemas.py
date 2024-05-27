@@ -1,6 +1,6 @@
 from pydantic import Field
 
-from app.core.server.base_response import BaseResponse
+from src.core.server.base_response import BaseResponse
 
 
 class RegistrationResponse(BaseResponse):

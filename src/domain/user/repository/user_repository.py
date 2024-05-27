@@ -1,10 +1,10 @@
 from asyncpg import UniqueViolationError
 
-from app.core.database.database import Database
-from app.core.conf.config import Config
-from app.domain.user.interfaces.repository_interfaces import UserRepositoryInterface
-from app.domain.user.repository.models import UserModel
-from app.domain.user.errors.database_error import (
+from src.core.database.database import Database
+from src.core.conf.config import Config
+from src.domain.user.interfaces.repository_interfaces import UserRepositoryInterface
+from src.domain.user.repository.models import UserModel
+from src.domain.user.errors.database_error import (
     AlreadyExistsError,
     UserNotFoundError
 )

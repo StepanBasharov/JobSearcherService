@@ -1,4 +1,4 @@
-from app.core.base_error import BaseError
+from src.core.base_error import BaseError
 
 
 class PasswordToShortError(BaseError):
@@ -9,3 +9,8 @@ class PasswordToShortError(BaseError):
 class SamePasswordEmail(BaseError):
     message = "Пароль и email не должны совпадать"
     status_code = 400
+
+
+class UnAuthorizationError(BaseError):
+    message = "Неверные логин или пароль"
+    status_code = 401

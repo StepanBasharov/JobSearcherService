@@ -1,4 +1,4 @@
-from app.core.base_error import BaseError
+from src.core.base_error import BaseError
 
 
 class AlreadyExistsError(BaseError):

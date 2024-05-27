@@ -1,11 +1,13 @@
-from app.domain.user.interfaces.use_case_interfaces import UseCaseInterface
-from app.domain.user.repository.user_repository import UserRepository
-from app.domain.user.schemas.request_schemas import RegistrationRequest
-from app.domain.user.schemas.response_schemas import RegistrationResponse
-from app.domain.user.tools.password_manager import PasswordManager
+from src.core.tools.server_tools import ServerTools
+from src.domain.user.interfaces.use_case_interfaces import UseCaseInterface
+from src.domain.user.repository.user_repository import UserRepository
+from src.domain.user.schemas.request_schemas import RegistrationRequest
+from src.domain.user.schemas.response_schemas import RegistrationResponse
+from src.domain.user.tools.password_manager import PasswordManager
 
 
 class RegistrationUseCase(UseCaseInterface):
+
     def __init__(self, request: RegistrationRequest):
         self.request = request
         self.repository = UserRepository()
