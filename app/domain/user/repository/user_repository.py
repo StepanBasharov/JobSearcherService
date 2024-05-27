@@ -4,7 +4,10 @@ from app.core.database.database import Database
 from app.core.conf.config import Config
 from app.domain.user.interfaces.repository_interfaces import UserRepositoryInterface
 from app.domain.user.repository.models import UserModel
-from app.domain.user.errors.database_error import AlreadyExistsError
+from app.domain.user.errors.database_error import (
+    AlreadyExistsError,
+    UserNotFoundError
+)
 
 
 class UserRepository(UserRepositoryInterface):
@@ -29,7 +32,15 @@ class UserRepository(UserRepositoryInterface):
             await conn.execute(
                 """ 
                 INSERT INTO job_searcher.users(
-                firstName, lastName, patronymic, age, email, phone, password, dateOfBirth, living
+                    firstName, 
+                    lastName, 
+                    patronymic, 
+                    age, 
+                    email, 
+                    phone, 
+                    password, 
+                    dateOfBirth, 
+                    living
                 ) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 """,
                 first_name,
@@ -54,4 +65,18 @@ class UserRepository(UserRepositoryInterface):
         if row:
             return UserModel(**row)
         else:
-            raise
+            raise UserNotFoundError
+
+    async def get_user_by_email_or_phone(self, login: str) -> UserModel:
+        conn = await self.db.get_connection()
+        row = await conn.fetchrow(
+            "SELECT * FROM job_searcher.users WHERE email = $1 OR phone = $1",
+            login
+        )
+        if row:
+            return UserModel(**row)
+        else:
+            raise UserNotFoundError
+
+
+

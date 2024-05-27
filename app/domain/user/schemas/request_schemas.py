@@ -13,3 +13,8 @@ class RegistrationRequest(BaseModel):
     email: str = Field(description="email")
     phone: str = Field(description="Телефон")
     password: str = Field(description="Пароль")
+    
+
+class LoginRequest(BaseModel):
+    login: str = Field(description="Номер телефона или email")
+    password: str = Field(description="Пароль")
