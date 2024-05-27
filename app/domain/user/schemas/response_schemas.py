@@ -1,9 +1,6 @@
-from pydantic import BaseModel, Field
+from pydantic import Field
 
-
-class BaseResponse(BaseModel):
-    result: bool = Field("Результат запроса")
-    time: int = Field("Время выполнения запроса")
+from app.core.server.base_response import BaseResponse
 
 
 class RegistrationResponse(BaseResponse):

@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS job_searcher.users
     age         INTEGER,
     email       VARCHAR(256) UNIQUE,
     phone       VARCHAR(256) UNIQUE,
-    password    VARCHAR(256) UNIQUE,
+    password    VARCHAR(256),
     dateOfBirth DATE,
     living      VARCHAR(256),
     profession_id INTEGER,
