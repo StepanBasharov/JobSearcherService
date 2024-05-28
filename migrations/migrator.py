@@ -1,7 +1,7 @@
 import os
 
 from src.core.constants import MIGRATION_PATH
-from src.core.database.database import Database
+from src.infrastructure.database.database import Database
 
 
 class Migrator:

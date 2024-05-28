@@ -1,9 +1,8 @@
-from src.core.tools.server_tools import ServerTools
-from src.domain.user.interfaces.use_case_interfaces import UseCaseInterface
-from src.domain.user.repository.user_repository import UserRepository
-from src.domain.user.schemas.request_schemas import RegistrationRequest
-from src.domain.user.schemas.response_schemas import RegistrationResponse
-from src.domain.user.tools.password_manager import PasswordManager
+from src.core.interfaces.user_interfaces.use_case_interfaces import UseCaseInterface
+from src.modules.user.repository.user_repository import UserRepository
+from src.modules.user.schemas.request_schemas import RegistrationRequest
+from src.modules.user.schemas.response_schemas import RegistrationResponse
+from src.modules.user.tools.password_manager import PasswordManager
 
 
 class RegistrationUseCase(UseCaseInterface):
@@ -32,4 +31,4 @@ class RegistrationUseCase(UseCaseInterface):
 
         new_user = await self.repository.get_user_by_email(email=self.request.email)
 
-        return RegistrationResponse(id=new_user.id, result=True, time=1)
+        return RegistrationResponse(id=new_user.id, result=True)

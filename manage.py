@@ -1,10 +1,10 @@
 import asyncio
 
-from src.core.server.server import Server
-from src.core.database.database import Database
+from src.infrastructure.server.server import Server
+from src.infrastructure.database.database import Database
 from src.core.conf.config import Config
-from src.core.logger.logger import Logger
-from src.domain import api
+from src.infrastructure.logger.logger import Logger
+from src.infrastructure.api import api
 from migrations.migrator import Migrator
 
 if __name__ == "__main__":

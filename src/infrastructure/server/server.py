@@ -7,7 +7,7 @@ from fastapi import (
 from fastapi.responses import JSONResponse
 
 from src.core.base_error import BaseError
-from src.core.server.base_response import ErrorResponse
+from src.core.base_response import ErrorResponse
 
 
 # TODO: дописать middleware для опредения времени выполения запроса
@@ -34,7 +34,7 @@ class Server:
         self._app = FastAPI()
 
         @self._app.exception_handler(BaseError)
-        def exception_handler(request: Request, exc: BaseError):
+        async def exception_handler(request: Request, exc: BaseError):
             return JSONResponse(
                 status_code=exc.status_code,
                 content=ErrorResponse(message=exc.message, result=False, time=1).dict(),

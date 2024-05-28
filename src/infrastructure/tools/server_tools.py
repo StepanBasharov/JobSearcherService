@@ -1,6 +1,6 @@
 from time import time
 
-from src.core.server.base_response import BaseResponse
+from src.core.base_response import BaseResponse
 
 
 class ServerTools:

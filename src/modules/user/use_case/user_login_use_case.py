@@ -1,8 +1,8 @@
-from src.domain.user.errors.user_input_errors import UnAuthorizationError
-from src.domain.user.interfaces.use_case_interfaces import UseCaseInterface
-from src.domain.user.schemas.request_schemas import LoginRequest
-from src.domain.user.repository.user_repository import UserRepository
-from src.domain.user.tools.password_manager import PasswordManager
+from src.modules.user.errors.user_input_errors import UnAuthorizationError
+from src.core.interfaces.user_interfaces.use_case_interfaces import UseCaseInterface
+from src.modules.user.schemas.request_schemas import LoginRequest
+from src.modules.user.repository.user_repository import UserRepository
+from src.modules.user.tools.password_manager import PasswordManager
 
 
 class LoginUseCase(UseCaseInterface):

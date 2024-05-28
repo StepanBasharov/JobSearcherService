@@ -1,6 +1,6 @@
 import hashlib
 
-from src.domain.user.errors.user_input_errors import (
+from src.modules.user.errors.user_input_errors import (
     PasswordToShortError,
     SamePasswordEmail
 )
