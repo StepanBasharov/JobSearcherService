@@ -10,8 +10,6 @@ from src.core.base_error import BaseError
 from src.core.base_response import ErrorResponse
 
 
-# TODO: дописать middleware для опредения времени выполения запроса
-# TODO: разграничить ответ use_case и BaseResponse
 class Server:
     """Класс отвечающий за работу сервера"""
 

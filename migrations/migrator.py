@@ -5,6 +5,9 @@ from src.infrastructure.database.database import Database
 
 
 class Migrator:
+    """ Появилось сильное желание реализовать миграции
+    своими руками, чуть позже перепишу на сохранения хеша в бд.
+    Пишем свой liquibase :) """
     def __init__(self, db: Database):
         self.db = db
         files = os.listdir(MIGRATION_PATH)

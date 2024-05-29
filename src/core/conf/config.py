@@ -5,12 +5,19 @@ from pydantic import BaseModel
 from src.core.constants import CONFIG_PATH
 
 
+class ServerAuth(BaseModel):
+    secret: str
+    exp_time: int
+    algorithm: str
+
+
 class ServerConfig(BaseModel):
     host: str
     port: int
     debug: bool | None
     version: str | None
     title: str | None
+    server_auth: ServerAuth
 
 
 class DataBaseConfig(BaseModel):
@@ -42,6 +49,10 @@ class Config(BaseModel):
             self.server.version,
             self.server.title,
         )
+
+    @property
+    def get_server_auth_conf(self):
+        return self.server.server_auth
 
     @property
     def get_database_conf(self):

@@ -4,6 +4,10 @@ server:
   debug: true
   version: "0.0.1"
   title: "Job Search Service"
+  server_auth:
+    secret: "secret"
+    exp_time: 1
+    algorithm: "HS256"
 
 database:
   host: "db"
